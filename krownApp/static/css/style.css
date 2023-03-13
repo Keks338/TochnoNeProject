@@ -1,0 +1,76 @@
+#banner{
+    color: #ffffff;
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4)), url(../img/banner.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+#banner h1{
+    font-size: 45px;
+    font-weight: 900;
+}
+.butt-out-purp{
+    font-weight: 600;
+    padding: 8px;
+    color: red;
+    background: rgba(0, 0, 0, 0.0);
+    border-radius: 5px; 
+    border: 1px solid red;
+    text-decoration: none;
+    transition: 300ms;
+}
+.butt-out-purp:hover{
+    background: rgba(144, 0, 0, 1);
+    border-radius: 5px;
+    color: white; 
+    border: 1px solid rgba(144, 0, 0, 1);
+    text-decoration: none;
+}
+.butt-purp{
+    text-decoration: none;
+    background: rgba(144, 0, 0, 1);
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    padding: 8px;
+    color: white;
+    transition: 300ms;
+}
+.butt-purp:hover{
+    background: rgba(101, 0, 0, 1);
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    padding: 8px;
+    color: white;
+}
+#hed{
+    background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0));
+}
+#moviecrd p{
+    display: none;
+}
+#moviecrd:hover p {
+    display: inline-block;
+}
+#logo{
+    left: 50%;
+}
+@media screen and (max-width: 991px){
+    #hed{
+        background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+    }
+    #banner, #banner p{
+        text-align: center;
+    }
+    #banner p{
+        width: 100%;
+    }
+    #banner h1{
+        font-size: 28px;
+        font-weight: 700;
+    }
+}

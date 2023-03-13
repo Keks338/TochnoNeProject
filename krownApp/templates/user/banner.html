@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static './img/kokek_ico.png' %}">
+    <link rel="stylesheet" href="{% static './css/style.css' %}">
+    <link rel="stylesheet" href="{% static './css/bootstrap.min.css' %}">
+    <title>KRown</title>
+</head>
+<body>
+
+<header class="navbar navbar-expand-lg fixed-top navbar-dark mobile-dark" id="hed">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'homePage' %}"><img src="{% static './img/kokek.png' %}" height="40px" id="logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="active butt-purp" aria-current="page" href="{% url 'logoutUser' %}">{{ user.username }} Выйти из аккаунта</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="active butt-purp" style="margin-top: 13px; margin-right: 15px; padding-top: 5px; padding-bottom: 7px;" aria-current="page" href="{% url 'SignUpPage' %}">Регистрация</a>
+                </li>
+                <li class="nav-item">
+                    <a class="active butt-purp" style="margin-top: 13px; margin-right: 15px; padding-top: 5px; padding-bottom: 7px;" aria-current="page" href="{% url 'loginPage' %}">Войти</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</header>
+
+<div id="banner">
+    <div class="container" style="text-align: center;">
+        <h1 style="text-align: center;">Добро пожаловать!</h1>
+        <p style="text-align: center;">Готовы ли вы смотреть фильмы здесь? Если да, то выберите</p>
+        <a href="{% url 'allMovies' %}" style="margin-right: 30px;" class="butt-out-purp">Все фильмы</a>
+        <a href="{% url 'SignUpPage' %}" class="butt-out-purp">Регистрация</a>
+    </div>
+</div>
+
+<script src="{% static './js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

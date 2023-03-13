@@ -1,0 +1,44 @@
+{% extends "../base.html" %}
+
+{% block title %}Top movies{% endblock %}
+
+{% block content %}
+<div style="padding: 24px; background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../../static/img/image.jpg); background-size: cover; background-attachment: fixed; background-position: center;">
+<div class="recomended">
+  <div class="container">
+    {% for m in movies %}
+    {% if m.isRecommended %}
+    <h2 style="color: white;">Рекомендованный фильм</h2>
+    <div class="card mb-4" style="border-color:rgba(0, 0, 0, 0.6); background:rgba(0, 0, 0, 0.6); color: white;">
+      <div class="card-body" style="border-color:rgba(0, 0, 0, 0.6); background:rgba(0, 0, 0, 0.6);">
+        <h2>{{ m.movieName }}</h2>
+        <h3>Жанр: {{ m.genre }}</h3>
+        <p>Описание: {{ m.description }}</p>
+        <a href="{% url 'movieDetail' pk=m.pk %}" class="butt-purp">Смотреть</a>
+      </div>
+    </div>
+    {% else %}
+    <span></span>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+<div class="top-ten">
+  <div class="container">
+    <h2 style="color: white;">Tоп-10 Фильмов</h2>
+    <div class="owl-carousel owl-theme">
+      {% for mo in movies %}
+      <div class="item"><div class="card" style="border-color:rgba(0, 0, 0, 0.6); background:rgba(0, 0, 0, 0.6); height: 200px;">
+        <div class="card-body" style="border-color:rgba(0, 0, 0, 0.6); background:rgba(0, 0, 0, 0.6);">
+          <h6 style="color: white;">{{ mo.movieName }}</h6>
+          <p style="position:fixed; bottom: 30%; left: 30%; color: white;">Рейтинг: <b>{{ mo.rating }}</b></p>
+          <a href="{% url 'movieDetail' pk=mo.pk %}" class="butt-purp" style="position:fixed; bottom: 7%; left: 30%;">Смотреть</a>
+        </div>
+      </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="text-center mb-3 mt-3"><a href="{% url 'allMovies' %}" class="butt-purp">Посмотреть все</a></div>
+</div>
+</div>
+{% endblock %}

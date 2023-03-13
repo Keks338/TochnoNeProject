@@ -1,0 +1,31 @@
+{% extends "../base.html" %}
+
+{% block title %}Зарегистрироваться{% endblock %}
+
+{% block content %}
+<style>
+    #id_username, #id_first_name, #id_last_name, #id_email, #id_password1, #id_password2 {
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #000;
+        display block;
+        width: 100%;
+        margin-bottom: 15px;
+  }
+</style>
+<div class="container mt-4 mb-4" style="color: white;">
+  <div class="card" style="border-color:rgba(0, 0, 0, 0.6); background:rgba(0, 0, 0, 0.6);">
+    <div class="card-body" style="border-color:rgba(0, 0, 0, 0.6); background:rgba(0, 0, 0, 0.6);">
+      <h1>Зарегистрироваться</h1>
+      <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <div style="display = block;">
+          <center><button class="butt-purp">Зарегистрироваться</button></center>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
